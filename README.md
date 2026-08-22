@@ -33,6 +33,28 @@ COSMIAN_KMS_VERIFY_SSL=true
 
 The published `config/cosmian-kms.php` contains all available options. Keep SSL verification enabled outside controlled local development environments.
 
+## Running Cosmian KMS locally
+
+[Cosmian KMS](https://github.com/Cosmian/kms) is a key management server used to create, store, and operate cryptographic keys. For local development, run the official image and expose its HTTP API on port `9998`:
+
+```bash
+docker run -p 9998:9998 ghcr.io/cosmian/kms:latest
+```
+
+With Laravel running directly on the host, configure the SDK in `.env` as follows:
+
+```dotenv
+COSMIAN_KMS_URL=http://localhost:9998
+COSMIAN_KMS_API_KEY=
+COSMIAN_KMS_TIMEOUT=30
+COSMIAN_KMS_RETRY_TIMES=3
+COSMIAN_KMS_VERIFY_SSL=true
+```
+
+The container started by the command above does not require an API key by default, so keep `COSMIAN_KMS_API_KEY` empty. If authentication is enabled in your Cosmian deployment, set it to the bearer token accepted by that server.
+
+When Laravel also runs in Docker, `localhost` points to the Laravel container itself. Set `COSMIAN_KMS_URL` to the KMS container's Docker network address instead, such as `http://cosmian-kms:9998`, where `cosmian-kms` is the service or container name.
+
 ## Usage
 
 Use dependency injection through the contract:
