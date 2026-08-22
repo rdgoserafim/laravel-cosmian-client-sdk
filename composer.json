@@ -1,0 +1,44 @@
+{
+    "name": "rdgoserafim/laravel-cosmian-client-sdk",
+    "description": "Cliente Laravel para o Cosmian KMS",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "illuminate/http": "^9.0|^10.0|^11.0",
+        "illuminate/support": "^9.0|^10.0|^11.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.0|^8.0|^9.0",
+        "phpunit/phpunit": "^9.5|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cosmian\\LaravelKmsSdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cosmian\\LaravelKmsSdk\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cosmian\\LaravelKmsSdk\\CosmianKmsServiceProvider"
+            ],
+            "aliases": {
+                "CosmianKms": "Cosmian\\LaravelKmsSdk\\Facades\\CosmianKms"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
