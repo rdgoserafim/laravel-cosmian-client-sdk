@@ -4,8 +4,8 @@ Laravel package for consuming the Cosmian KMS REST crypto API through Laravel's 
 
 ## Requirements
 
-- PHP 8.0 or newer
-- Laravel 9, 10, or 11
+- PHP 8.0 or newer (Laravel 12 requires PHP 8.2 or newer)
+- Laravel 9, 10, 11, or 12
 
 ## Installation
 
